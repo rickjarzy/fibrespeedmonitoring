@@ -3,11 +3,10 @@ import traceback
 from datetime import datetime
 from speedtest import Speedtest
 
+
 def main() -> None:
-
     try:
-
-        while True: 
+        while True:
 
             speedtest = Speedtest()
             time_now = datetime.now()
