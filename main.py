@@ -28,6 +28,11 @@ def main() -> None:
         traceback.print_exc()
         print("Restarting speedtest")
         main()
+    except speedtest.ConfigRetrievalError as cre:
+        print(f"### ERROR - ConfigRetrievalError - {cre}")
+        traceback.print_exc()
+        time.sleep(30)
+        main()
     except KeyboardInterrupt:
         print("PROGRAM FINISHED by user")
         print("Programm ENDE")
