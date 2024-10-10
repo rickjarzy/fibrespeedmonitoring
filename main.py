@@ -1,7 +1,7 @@
 import time
 import traceback
 from datetime import datetime
-from speedtest import Speedtest
+from speedtest import Speedtest, SpeedtestException
 
 
 def main() -> None:
@@ -21,13 +21,16 @@ def main() -> None:
     except Exception as e:
         print(f"### ERROR - something went wrong {e}")
         traceback.print_exc()
-    except speedtest.SpeedtestException as e:
+        print("Restarting speedtest")
+        main()
+    except SpeedtestException as e:
         print(f"### ERROR - during speedtest something went wrong: {e}")
         traceback.print_exc()
+        print("Restarting speedtest")
+        main()
     except KeyboardInterrupt:
         print("PROGRAM FINISHED by user")
-
-    print("Programm ENDE")
+        print("Programm ENDE")
 
 
 if __name__ == "__main__":
