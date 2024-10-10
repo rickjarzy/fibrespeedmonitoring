@@ -23,7 +23,7 @@ def main() -> None:
         traceback.print_exc()
         print("Restarting speedtest")
         main()
-    except SpeedtestException as e:
+    except speedtest.SpeedtestException as e:
         print(f"### ERROR - during speedtest something went wrong: {e}")
         traceback.print_exc()
         print("Restarting speedtest")
