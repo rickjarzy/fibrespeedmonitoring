@@ -22,10 +22,12 @@ def main() -> None:
         print(f"### ERROR - something went wrong {e}")
         traceback.print_exc()
         print("Restarting speedtest")
+        time.sleep(30)
         main()
     except speedtest.SpeedtestException as e:
         print(f"### ERROR - during speedtest something went wrong: {e}")
         traceback.print_exc()
+        time.sleep(30)
         print("Restarting speedtest")
         main()
     except speedtest.ConfigRetrievalError as cre:
